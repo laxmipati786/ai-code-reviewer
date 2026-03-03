@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE = '/api';
+// Use the live Render backend URL, but allow local override if needed
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://ai-code-reviewer-7711.onrender.com/api';
 
 export async function analyzeCode(code, language, filename = 'untitled') {
     const response = await axios.post(`${API_BASE}/analyze`, {
